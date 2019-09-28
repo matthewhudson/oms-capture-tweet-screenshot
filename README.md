@@ -38,7 +38,7 @@ yarn run commit
 ## OMS Test Runner
 
 ```sh
-> omg run message -a name=Service
+> omg run tweet -a url=https://twitter.com/jamessocol/status/717902576210067456
 ℹ Building Docker image
 …
 ✔ Built Docker image with name: omg/l2hvbwuvc2vil2fzew5jes9ydwj5
@@ -46,4 +46,13 @@ yarn run commit
 ✔ Health check passed
 ✔ Ran action: `message` with output: {"message":"Hello Service"}
 ✔ Stopped Docker container: 1c8a91688261
+```
+
+## cUrl
+
+```bash
+curl -X POST \
+  http://localhost:8080/tweet \
+  -H 'Content-Type: application/json' \
+  -d '{ "url": "https://twitter.com/storyscript_/status/1174745271189856257" }'
 ```

@@ -18,13 +18,13 @@ health:
     port: 8080
 
 actions:
-  message:
+  tweet:
     http:
-      path: /message
+      path: /tweet
       method: post
       port: 8080
     arguments:
-      name:
+      url:
         type: string
         required: true
         in: requestBody
@@ -32,5 +32,9 @@ actions:
       contentType: application/json
       type: object
       properties:
-        message:
+        success:
+          type: string
+        error:
+          type: string
+        url:
           type: string
