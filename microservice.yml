@@ -1,0 +1,36 @@
+omg: 1
+
+info:
+  version: 1.0.0
+  title: Your microservice
+  description: Describe your microservice
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+lifecycle:
+  startup:
+    command: ['node', '/app/src/index.js']
+
+health:
+  http:
+    path: /health
+    port: 8080
+
+actions:
+  message:
+    http:
+      path: /message
+      method: post
+      port: 8080
+    arguments:
+      name:
+        type: string
+        required: true
+        in: requestBody
+    output:
+      contentType: application/json
+      type: object
+      properties:
+        message:
+          type: string
