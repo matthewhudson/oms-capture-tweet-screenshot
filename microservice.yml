@@ -20,7 +20,7 @@ health:
 actions:
   tweet:
     http:
-      path: /tweet
+      path: /capture-tweet-screenshot
       method: post
       port: 8080
     arguments:

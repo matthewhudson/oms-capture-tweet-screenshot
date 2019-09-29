@@ -52,7 +52,7 @@ yarn run commit
 
 ```bash
 curl -X POST \
-  http://localhost:8080/tweet \
+  http://localhost:8080/capture-tweet-screenshot \
   -H 'Content-Type: application/json' \
   -d '{ "url": "https://twitter.com/storyscript_/status/1174745271189856257" }'
 ```
