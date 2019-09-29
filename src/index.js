@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-const screenshotTweet = require('screenshot-tweet').default
-const { isValidTweetUrl, generateFilenameFromUrl } = require('./helpers')
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
+const { actionHandler } = require('./actions')
 
 app.use(bodyParser.json())
 
@@ -19,25 +18,18 @@ app.all('/*', (req, res, next) => {
   next()
 })
 
-app.post('/tweet', (req, res) => {
+app.post('/capture-tweet-screenshot', (req, res) => {
   const { url } = req.body
 
-  if (!isValidTweetUrl(url)) {
-    message.error = `The ${url} is not valid.`
-    res.status(500).json(message)
-  }
-
-  const fileName = generateFilenameFromUrl(url)
-
-  screenshotTweet(url, fileName)
-    .then(() => {
+  actionHandler(url)
+    .then(url => {
       message.success = true
-      message.url = 'https://urlpip.es'
+      message.url = url
       res.json(message)
     })
     .catch(er => {
       // @TODO: Log
-      message.error = `[500] ${er.message}`
+      message.error = `[500] ${er}`
       res.status(500).json(message)
     })
 })
