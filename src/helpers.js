@@ -46,6 +46,7 @@ const generateFilenameFromUrl = (url, fileType = 'jpg') => {
   const fileName = pathname.substring(1, pathname.length).replace(/\//gi, '-')
   return `${fileName}.${fileType}`
 }
+
 /**
  * Upload screenshot to AWS S3.
  *
