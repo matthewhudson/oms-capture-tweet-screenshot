@@ -38,7 +38,14 @@ yarn run commit
 ## OMS Test Runner
 
 ```sh
-> omg run tweet -a url=https://twitter.com/jamessocol/status/717902576210067456
+omg run capture \
+  -a url=https://twitter.com/jamessocol/status/717902576210067456 \
+  -e AWS_ACCESS_KEY_ID=XXXXXXXXXX \
+  -e AWS_SECRET_ACCESS_KEY=XXXXXXXXXX \
+  -e AWS_S3_BUCKET_NAME=XOXOXO
+```
+
+```
 ℹ Building Docker image
 …
 ✔ Built Docker image with name: omg/l2hvbwuvc2vil2fzew5jes9ydwj5

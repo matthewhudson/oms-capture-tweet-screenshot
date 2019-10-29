@@ -2,8 +2,8 @@ omg: 1
 
 info:
   version: 1.0.0
-  title: Your microservice
-  description: Describe your microservice
+  title: capture-tweet-screenshot
+  description: Returns a URL to a screenshot of a tweet.
   license:
     name: MIT
     url: https://opensource.org/licenses/MIT
@@ -18,7 +18,7 @@ health:
     port: 8080
 
 actions:
-  tweet:
+  capture:
     http:
       path: /capture-tweet-screenshot
       method: post
@@ -30,11 +30,18 @@ actions:
         in: requestBody
     output:
       contentType: application/json
-      type: object
-      properties:
-        success:
-          type: string
-        error:
-          type: string
-        url:
-          type: string
+      type: map
+
+environment:
+  AWS_ACCESS_KEY_ID:
+    type: string
+    required: true
+    help: AWS Access Key Id credential w/ S3 permissions.
+  AWS_SECRET_ACCESS_KEY:
+    type: string
+    required: true
+    help: AWS Secret Access Key credential w/ S3 permissions.
+  AWS_S3_BUCKET_NAME:
+    type: string
+    required: true
+    help: AWS S3 Bucket name

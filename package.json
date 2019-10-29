@@ -1,5 +1,5 @@
 {
-  "name": "oms-nodejs",
+  "name": "capture-tweet-screenshot",
   "private": true,
   "version": "0.0.1",
   "description": "An OMS service using Nodejs",

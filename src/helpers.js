@@ -3,7 +3,16 @@ const S3 = require('aws-sdk').S3
 const fs = require('fs')
 const path = require('path')
 
-const s3 = new S3()
+const {
+  AWS_ACCESS_KEY_ID,
+  AWS_SECRET_ACCESS_KEY,
+  AWS_S3_BUCKET_NAME
+} = process.env
+
+const s3 = new S3({
+  accessKeyId: AWS_ACCESS_KEY_ID,
+  secretAccessKey: AWS_SECRET_ACCESS_KEY
+})
 
 /**
  * Verify a URL is a tweet
@@ -60,7 +69,7 @@ const uploadFile = fileName => {
     fs.createReadStream(`${filePath}/${fileName}`)
       .pipe(
         UploadStream(s3, {
-          Bucket: 'oms-hudson',
+          Bucket: S3_BUCKET_NAME,
           Key: `capture-tweet-screenshot/${fileName}`,
           ContentType: 'image/jpeg'
         })
@@ -69,7 +78,7 @@ const uploadFile = fileName => {
         reject(err)
       })
       .on('finish', () => {
-        const url = `https://oms-hudson.s3.amazonaws.com/capture-tweet-screenshot/${fileName}`
+        const url = `https://${AWS_S3_BUCKET_NAME}.s3.amazonaws.com/capture-tweet-screenshot/${fileName}`
         resolve(url)
       })
   })

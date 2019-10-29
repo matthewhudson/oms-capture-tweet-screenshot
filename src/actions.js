@@ -24,7 +24,7 @@ const actionHandler = async url => {
         })
         .catch(er => {
           // @TODO: Log
-          reject(`[500] ${er.message}`)
+          reject(er)
         })
     } catch (er) {
       reject(er)
