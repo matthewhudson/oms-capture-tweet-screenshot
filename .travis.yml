@@ -1,15 +1,22 @@
 language: node_js
 node_js:
-  - '10'
-
+- '10'
 services:
-  - docker
-
+- docker
 before_install:
-  - npm i omg
-
+- npm i @microservices/oms
+env:
+  global:
+  - secure: kLm20gSKsb1Uov+7wxz4YozFTUMeIvz8tt3zPOS2gqQ78NbrjzciWDnevlZMWDej5T792vi2zWI569mawZeQw6HEtqKojiJJe04UdzvNIRbb4sUBHK8txwt38FqV7HoETpEs3wZhiMApNZdfyC4HYVDSQm6o+SNBYYjLeCxJhYl2B9Vwq3JzfO8GNlpkAXHY++biAAUpjHkcrL+mzB6yuwxtMwZmVCJ1TIiJ60qebA7gPKA6v2NhLrMAY/ac7+nhFe2VC4AKOxNM6CG9p6+FYBqS9cmEp8hH2QfSzFuMuOQD6qXQmSG0cZPoD611668x5rZqB5S6RbzSzUg5r/PxNRu7wCW3oKASNf1FyvaEXx8EsNZt4RE5IIshtfnuiz3dt95j95X+RgNJhdfU0KvE/aJiZBDWCUUwDUKistKbiGU2lxBt+ezLeXFfeT3tgik/HFOwumzeDuSXmL98MC+/Gu8F+JwxgyLVnNoBMjZzkoOiZuKz9+cw5Q3g8pyZyto5vAAqSHCCZOH7WZ33dbPSv94VjTCv+z8GHvN18a2Ssj1zypz7JuXPCeJDxqgH+MzbkTAbAD1OnFgNr0B8Uq/X0kbHzzkmchYUjIGEeSvqxz0Ku95lFaKUbWxcuXfoo8qCn1RVw5gibOVUIKNPcFfqfYJI/zM8TKILbaUp/W+jOmc=
+  - secure: UCwh11yepvjkUTtPcZvU4L3z1m4a8ZK4eX76MULPJiGl5wlvzeZKrQrL3um88Qyqs22Rymp0obL2+WpZ9WJ0da7mK9HnrY4EfezQQcL9AMNjb9mVdk+4Y95IMlBSDFIKLzpDvLp94pyd6BE2+bUOPhhQZLw3USYEJFJcdOgFMNuohCJQynxt0eSC0vRt1EYLfihnEkSgB22TRJTDkTgYSxLi8WIjfyoaSD4vNM5Cii3eo23lPD5GRrQFeiWUyIgTm1vr73jrYsqcPdrk0Eg53yi8W5C/UPW3aqNYmBMyX3dRAreyDJegjh5FoWwBKWUEdHC5ruzDFK9wzE2kHfYxzRiIUsBqooWT8eX59MalWFMakvSVaGPuhFaWVhYVmbgJ+DxY6CPtrLYHJhh4bnIxVuJ1Us+Hc8qK1gfaPl40+f0jio6HI4x92FZPkOHNEOkIiT6XIK8Gj6YH5TrR+OK7S6ndat3fx3hTC98usl7oNEsjTsqEiskOifOD+BDfseAYjCVf8qZfkD/sv93VqVOO1PRxPUQVoeaD6bzV+Bq61zsVL7tNbDlZvY7Q0R8T0yt1PU8NWGFWKIQ+AQpQsSPPXuk8sTHQFKZhlj1fnLpGMIXA/tkyFnYMC5w3+CX42F5CNIIkXyQTW3yWLReksz6lANsWLvOubqIKO2yBxJWKIQM=
+  - secure: rVSUe37irnIbYk/iV/c4wDuPBmJYRjZ05Q3uQSctTSnmUMMbLRObPv+C93aLsFKxb94rTMQJu7iCWTuX/11O19JNLtLDQqNudjgq31y3ym9mGxFwrItY63+PhLctQ51NTQB+3yg1LrvxUW0yPXDOtJTTum2cPtGecxS8CCJSzItw1YgOeZZHRcCENSCyFeCIsHaFQBJOklb1pGF39cRq96e/eQRK1wMBFfE4+Nl1Pxefgx0bwApFIuyNd1nsj+AmeYorwuKy8e3UB4UctZqszD3DlNsq/YQ0uJtfviOGi4hzWEVbLS/uD0ZytBF/ofGx9DT6W+PLUYyQH6i87kcKirotfiGCVAR8IoRJW8o/czJ67HS9AMitKQxyxyNZ5Ts2G+CAKGHgeWScwoTMqM9qOFZ+C6PpLr8dMinvnI/O4l4dBNc6jySfUebEltd9hxYL2sjzadeKBPFG8Vd52UAtGs8FJWcEd2ZG0gpxl8JcBE4Azm2Fc9H2zcR75kf2uf3En9D3fTBHz3IXTYoMb04wkHy0JvcD6H1XxLhAU/+Psza7Sff5zwRGmmUCIkU1S3t+KBf3sMl9qzUzX1D0oZsUgnPLcKc5kYWevZNIgsqCsFT6sQ5Ox7rqJKUkdAfa5Q2gGfbB9KRH3C3XaW0zXpFQPozs8dlNJ6tWlzs/HeB6u/w=
+  - secure: ipN6UxLjyUeZs16/srJ22jjw92Tgj4qcN2Ta0S4z+a2ssWbViQ8jM9VVL6mNxup3lc933Ufnv+jNO4gghe09kCrmeY1XkjhBvbn0uqZyl0l2FzHS5jt7usZZ9hGPB7/F5/cDWP1pvuY525eQqSxhjj9c5+K5rdNY8zKmUtV/mDgmLGplMhAYBttLyqfCHCBeCBc71HX3itJm6xXQ1cDA/QPJY4nEb7ZjrkFB0onGl4dccj9AAy43cb9HH5iSEGbdpVdXbtOfDusNC803NQK18ik6LyOYPYs8vZ4mUhUdfxEh3b8cyst8OvaSaGXMnf23iS34UISGZEr9n3tmVArgF5/kDgTkKTYOAKS3RyTTx1JDb/zSaUK8ZVCNKUr56OD4UyPknw9RiWJLfChxv4VHiteWRm5ultYUOdf5I0MN+olBwPs369z39Bx5VQ2EWIuhAGJID+OdiGgQNm4Cp1XXygHZFqNl5nKFvAxSI1b2C3Jm2kzwZgIhWhIKQwh8LDc6pIn64TfNgJo7wTxf7Cjgfn0/91/QcPj0nHxIAhW2DMQv0WIkzYlcm5BjTLm09jT8QjPNeg1kwWxA/Yv4TTQBElm8R2JIb8Fm5sBd0NFC0FMlAgLbwIr77YmXUdTZ+5ll2DyAawheoSjrkuwdZR8XttcIHgeRtB9FPsTQAKZLfi8=
 script:
-  - npx omg build
-  - |
-    output="$(npx omg run --raw message -a name="World" | jq -c .)"
-    if [ "$output" != '{"message":"Hello World"}' ] ; then echo "$output"; exit 1; fi
+- npx oms build
+- |
+  output="$(npx oms run --silent capture \
+  -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+  -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+  -e AWS_S3_BUCKET_NAME=$AWS_S3_BUCKET_NAME \
+  -e AWS_S3_BUCKET_PREFIX=$AWS_S3_BUCKET_PREFIX | jq -c .)"
+  if [ "$output" != '{"message":"Hello World"}' ] ; then echo "$output"; exit 1; fi
