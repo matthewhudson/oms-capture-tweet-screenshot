@@ -6,7 +6,8 @@ const path = require('path')
 const {
   AWS_ACCESS_KEY_ID,
   AWS_SECRET_ACCESS_KEY,
-  AWS_S3_BUCKET_NAME
+  AWS_S3_BUCKET_NAME,
+  AWS_S3_BUCKET_PREFIX
 } = process.env
 
 const s3 = new S3({
@@ -69,8 +70,8 @@ const uploadFile = fileName => {
     fs.createReadStream(`${filePath}/${fileName}`)
       .pipe(
         UploadStream(s3, {
-          Bucket: S3_BUCKET_NAME,
-          Key: `capture-tweet-screenshot/${fileName}`,
+          Bucket: AWS_S3_BUCKET_NAME,
+          Key: `${AWS_S3_BUCKET_PREFIX}/${fileName}`,
           ContentType: 'image/jpeg'
         })
       )
@@ -78,7 +79,7 @@ const uploadFile = fileName => {
         reject(err)
       })
       .on('finish', () => {
-        const url = `https://${AWS_S3_BUCKET_NAME}.s3.amazonaws.com/capture-tweet-screenshot/${fileName}`
+        const url = `https://${AWS_S3_BUCKET_NAME}/${AWS_S3_BUCKET_PREFIX}/${fileName}`
         resolve(url)
       })
   })

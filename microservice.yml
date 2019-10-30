@@ -19,14 +19,17 @@ health:
 
 actions:
   capture:
+    help: Captures a screenshot of a tweet.
     http:
       path: /capture-tweet-screenshot
       method: post
       port: 8080
     arguments:
       url:
+        help: A target tweet permalink.
         type: string
         required: true
+        default: https://twitter.com/jackrusher/status/1170325794910027778
         in: requestBody
     output:
       contentType: application/json
@@ -45,3 +48,7 @@ environment:
     type: string
     required: true
     help: AWS S3 Bucket name
+  AWS_S3_BUCKET_PREFIX:
+    type: string
+    required: false
+    help: AWS S3 Bucket file prefix
