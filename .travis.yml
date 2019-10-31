@@ -15,8 +15,9 @@ script:
 - npx oms build
 - |
   output="$(npx oms run --silent capture \
+  -a url="https://twitter.com/jackrusher/status/1170325794910027778" \
   -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
   -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
   -e AWS_S3_BUCKET_NAME=$AWS_S3_BUCKET_NAME \
   -e AWS_S3_BUCKET_PREFIX=$AWS_S3_BUCKET_PREFIX | jq -c .)"
-  if [ "$output" != '{"message":"Hello World"}' ] ; then echo "$output"; exit 1; fi
+  if [ "$output" != '{"success":true,"url":"https://oms.hudson.dev/oms/capture-tweet-screenshot/jackrusher-status-1170325794910027778.jpg"}' ] ; then echo "$output"; exit 1; fi
